@@ -17,7 +17,7 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://wizard-world-api.herokuapp.com/Houses/")
+            .baseUrl("https://wizard-world-api.herokuapp.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
