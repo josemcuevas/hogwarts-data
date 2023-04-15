@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,8 +8,65 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/colorsTv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="HOUSE DETAIL FRAGMENT" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Colors"
+        app:layout_constraintBottom_toTopOf="@+id/founderTv" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/founderTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Founder"
+        app:layout_constraintBottom_toTopOf="@+id/animalTv" />
+
+    <TextView
+        android:id="@+id/animalTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="animal"
+        app:layout_constraintBottom_toTopOf="@+id/elementTv" />
+
+    <TextView
+        android:id="@+id/elementTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="element"
+        app:layout_constraintBottom_toTopOf="@+id/ghostTv" />
+
+    <TextView
+        android:id="@+id/ghostTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="ghost"
+        app:layout_constraintBottom_toTopOf="@+id/commonRoomTv" />
+
+    <TextView
+        android:id="@+id/commonRoomTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="commonRoom"
+        app:layout_constraintBottom_toTopOf="@+id/traitsRv" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/traitsRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/headsRv" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/headsRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
