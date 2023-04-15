@@ -14,4 +14,11 @@ class HouseService @Inject constructor(
             response.body() ?: emptyList()
         }
     }
+
+    suspend fun getHouse(id:Int): HouseModel?{
+        return withContext(Dispatchers.IO){
+            val response = api.getHouse(id)
+            response.body()
+        }
+    }
 }

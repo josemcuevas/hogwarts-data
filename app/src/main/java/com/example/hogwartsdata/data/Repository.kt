@@ -16,6 +16,10 @@ class Repository @Inject constructor(
         return api.getHouses()
     }
 
+    suspend fun getHouse(id:Int): HouseModel?{
+        return api.getHouse(id)
+    }
+
     @RequiresApi(Build.VERSION_CODES.N)
     fun postUserLogin(loginUser:String, loginPassword:String): Boolean {
         initializeUsers()
