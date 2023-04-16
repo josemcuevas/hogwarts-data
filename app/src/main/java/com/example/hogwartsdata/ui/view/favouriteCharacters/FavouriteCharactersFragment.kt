@@ -13,7 +13,9 @@ import com.example.hogwartsdata.data.model.TraitModel
 import com.example.hogwartsdata.databinding.FragmentFavouriteCharactersBinding
 import com.example.hogwartsdata.ui.view.favouriteCharacters.favouritesList.FavouriteListAdapter
 import com.example.hogwartsdata.ui.view.houseDetail.traitsList.TraitListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FavouriteCharactersFragment : Fragment() {
     private lateinit var binding: FragmentFavouriteCharactersBinding
     private lateinit var favouriteListAdapter: FavouriteListAdapter
