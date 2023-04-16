@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_homeFragment_to_houseDetailFragment2"
             app:destination="@id/houseDetailFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_favouriteCharactersFragment"
+            app:destination="@id/favouriteCharactersFragment" />
     </fragment>
     <fragment
         android:id="@+id/houseDetailFragment2"
@@ -35,6 +38,14 @@
         tools:layout="@layout/fragment_house_detail" >
         <action
             android:id="@+id/action_houseDetailFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteCharactersFragment"
+        android:name="com.example.hogwartsdata.ui.view.favouriteCharacters.FavouriteCharactersFragment"
+        android:label="FavouriteCharactersFragment" >
+        <action
+            android:id="@+id/action_favouriteCharactersFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

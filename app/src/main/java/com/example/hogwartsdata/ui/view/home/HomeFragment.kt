@@ -32,16 +32,16 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         isLoadingObserver()
-        detailButtonObserver()
+        favouriteButtonObserver()
         housesObserver()
         homeViewModel.isLoading.postValue(true)
         homeViewModel.onCreate()
         return binding.root
     }
 
-    private fun detailButtonObserver(){
+    private fun favouriteButtonObserver(){
         binding.detailButton.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_houseDetailFragment2)
+            findNavController().navigate(R.id.action_homeFragment_to_favouriteCharactersFragment)
         }
     }
 
