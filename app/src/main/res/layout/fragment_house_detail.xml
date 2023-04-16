@@ -1,25 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.view.houseDetail.HouseDetailFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <!-- TODO: Update blank fragment layout -->
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/colorsTv"
+        android:id="@+id/mainInfoTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Colors"
-        app:layout_constraintBottom_toTopOf="@+id/founderTv" />
+        android:gravity="center"
+        android:text="INFORMACIÓN PRINCIPAL"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/colorsTv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/colorsTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Colors"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/founderTv" />
 
     <TextView
         android:id="@+id/founderTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:textSize="20dp"
         android:text="Founder"
         app:layout_constraintBottom_toTopOf="@+id/animalTv" />
 
@@ -28,6 +58,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:textSize="20dp"
         android:text="animal"
         app:layout_constraintBottom_toTopOf="@+id/elementTv" />
 
@@ -36,6 +68,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:gravity="center"
         android:text="element"
         app:layout_constraintBottom_toTopOf="@+id/ghostTv" />
 
@@ -44,6 +78,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:gravity="center"
         android:text="ghost"
         app:layout_constraintBottom_toTopOf="@+id/commonRoomTv" />
 
@@ -52,16 +88,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:gravity="center"
         android:text="commonRoom"
-        app:layout_constraintBottom_toTopOf="@+id/traitsRv" />
+        app:layout_constraintBottom_toTopOf="@+id/traitsInfoTv" />
+
+        <TextView
+            android:id="@+id/traitsInfoTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="INFORMACIÓN Y CARACTERÍSTICAS"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/traitsRv"
+            tools:layout_editor_absoluteX="0dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/traitsRv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/headsRv" />
+        app:layout_constraintBottom_toTopOf="@+id/headsInfoTv" />
 
+        <TextView
+            android:id="@+id/headsInfoTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="LÍDERES"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/headsRv"
+            tools:layout_editor_absoluteX="0dp" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/headsRv"
         android:layout_width="match_parent"
@@ -70,3 +131,4 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

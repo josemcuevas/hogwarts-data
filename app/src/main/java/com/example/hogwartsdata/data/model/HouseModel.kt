@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class HouseModel (
     @SerializedName("id") val id: String,
     @SerializedName("name") val name: String,
-    @SerializedName("houseColors") val houseColors: String,
+    @SerializedName("houseColours") val houseColors: String,
     @SerializedName("founder") val founder: String,
     @SerializedName("animal") val animal: String,
     @SerializedName("element") val element: String,

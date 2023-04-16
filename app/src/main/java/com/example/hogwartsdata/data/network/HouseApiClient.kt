@@ -10,5 +10,5 @@ interface HouseApiClient {
     suspend fun getAllHouses(): Response<List<HouseModel>>
 
     @GET("Houses/{id}")
-    suspend fun getHouse(@Path("id") id: Int): Response<HouseModel>
+    suspend fun getHouse(@Path("id") id: String): Response<HouseModel>
 }

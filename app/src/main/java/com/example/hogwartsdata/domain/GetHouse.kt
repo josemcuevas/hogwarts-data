@@ -7,7 +7,7 @@ import javax.inject.Inject
 class GetHouse @Inject constructor(
     val repository: Repository
 ){
-    suspend operator fun invoke(id: Int): HouseModel? {
+    suspend operator fun invoke(id: String): HouseModel? {
         return repository.getHouse(id)
     }
 }
