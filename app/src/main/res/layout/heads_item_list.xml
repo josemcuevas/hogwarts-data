@@ -28,6 +28,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="10dp"
             android:text="Marcar Favorito"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
