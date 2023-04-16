@@ -1,10 +1,12 @@
 package com.example.hogwartsdata.ui.view.houseDetail
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +30,7 @@ class HouseDetailFragment : Fragment() {
     private lateinit var headListAdapter: HeadListAdapter
     private lateinit var traitListAdapter: TraitListAdapter
     private var houseId: String? = null
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -53,6 +56,7 @@ class HouseDetailFragment : Fragment() {
         })
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     private fun houseObserver(){
         houseDetailViewModel.house.observe(viewLifecycleOwner, Observer { house ->
             if(house != null){
@@ -68,8 +72,9 @@ class HouseDetailFragment : Fragment() {
         })
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     private fun initHeadRecyclerView(headList: List<HeadModel>){
-        headListAdapter = HeadListAdapter(headList)
+        headListAdapter = HeadListAdapter(headList, ::buttonHandler, ::isFavourite)
         binding.headsRv.layoutManager = LinearLayoutManager(context)
         binding.headsRv.adapter = headListAdapter
     }
@@ -78,5 +83,14 @@ class HouseDetailFragment : Fragment() {
         traitListAdapter = TraitListAdapter(traitList)
         binding.traitsRv.layoutManager = LinearLayoutManager(context)
         binding.traitsRv.adapter = traitListAdapter
+    }
+
+    private fun buttonHandler(characterId: String){
+        houseDetailViewModel.addFavourite(characterId)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun isFavourite(characterId: String): Boolean{
+        return houseDetailViewModel.isFavourite(characterId)
     }
 }

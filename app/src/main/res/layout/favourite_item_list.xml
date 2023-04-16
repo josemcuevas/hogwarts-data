@@ -24,6 +24,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
+            android:id="@+id/unmarkFavourite"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginEnd="30dp"

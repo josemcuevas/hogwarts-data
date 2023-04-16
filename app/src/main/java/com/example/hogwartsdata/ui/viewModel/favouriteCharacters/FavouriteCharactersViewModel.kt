@@ -26,10 +26,6 @@ class FavouriteCharactersViewModel @Inject constructor(
 ) : ViewModel() {
     var isLoading = MutableLiveData<Boolean>(false)
     var headsList = MutableLiveData<ArrayList<HeadModel>>()
-    fun onCreate(){
-        val mockedCharacters: List<String> = listOf("530da97d-5a83-4ea6-bc15-790edf5b5efc", "9915c5f8-9177-4f63-bba8-d04387a404f9")
-        setFavouriteCharacters(mockedCharacters)
-    }
 
     @RequiresApi(Build.VERSION_CODES.N)
     fun getFavourite(){
@@ -50,5 +46,13 @@ class FavouriteCharactersViewModel @Inject constructor(
             }
         }
 
+    }
+
+    fun deleteFavourite(characterId: String){
+        val characterIds: ArrayList<String> = getFavouriteCharacters() as ArrayList<String>
+        characterIds.remove(characterId)
+        setFavouriteCharacters(characterIds)
+        var newHeadList: ArrayList<HeadModel> = headsList.value?.filter { head -> head.id != characterId } as ArrayList<HeadModel>
+        headsList.postValue(newHeadList)
     }
 }

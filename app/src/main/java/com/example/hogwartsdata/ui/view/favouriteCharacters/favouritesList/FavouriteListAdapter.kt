@@ -6,10 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.hogwartsdata.R
 import com.example.hogwartsdata.data.model.HeadModel
 
-class FavouriteListAdapter(val favourites: List<HeadModel>): RecyclerView.Adapter<FavouriteListViewHolder>() {
+class FavouriteListAdapter(val favourites: List<HeadModel>, buttonHandler: (characterId: String)-> Unit): RecyclerView.Adapter<FavouriteListViewHolder>() {
+    private val buttonHandler = buttonHandler
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavouriteListViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return FavouriteListViewHolder(layoutInflater.inflate(R.layout.favourite_item_list, parent, false))
+        return FavouriteListViewHolder(layoutInflater.inflate(R.layout.favourite_item_list, parent, false), buttonHandler)
     }
 
     override fun onBindViewHolder(holder: FavouriteListViewHolder, position: Int) {

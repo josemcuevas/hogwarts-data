@@ -7,10 +7,12 @@ import com.example.hogwartsdata.R
 import com.example.hogwartsdata.data.model.HeadModel
 import com.example.hogwartsdata.data.model.HouseModel
 
-class HeadListAdapter(val heads: List<HeadModel>): RecyclerView.Adapter<HeadListViewHolder>() {
+class HeadListAdapter(val heads: List<HeadModel>, buttonHandler: (characterId: String)-> Unit, isFavourite:(characterId: String)-> Boolean ): RecyclerView.Adapter<HeadListViewHolder>() {
+    private val buttonHandler = buttonHandler
+    private val isFavourite = isFavourite
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeadListViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return HeadListViewHolder(layoutInflater.inflate(R.layout.heads_item_list, parent, false))
+        return HeadListViewHolder(layoutInflater.inflate(R.layout.heads_item_list, parent, false), buttonHandler, isFavourite)
     }
 
     override fun onBindViewHolder(holder: HeadListViewHolder, position: Int) {

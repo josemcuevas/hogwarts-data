@@ -35,7 +35,7 @@ class FavouriteCharactersFragment : Fragment() {
     ): View {
         binding = FragmentFavouriteCharactersBinding.inflate(inflater, container, false)
         initSearchView(binding.svFavourites)
-        favouriteCharactersViewModel.onCreate()
+        //favouriteCharactersViewModel.onCreate()
         headListObserver()
         isLoadingObserver()
         favouriteCharactersViewModel.isLoading.postValue(true)
@@ -68,6 +68,10 @@ class FavouriteCharactersFragment : Fragment() {
         })
     }
 
+    private fun buttonHandler(characterId: String){
+        favouriteCharactersViewModel.deleteFavourite(characterId)
+    }
+
     private fun headListObserver(){
         favouriteCharactersViewModel.headsList.observe(viewLifecycleOwner, Observer { headListObject ->
             if(!headListObject.isNullOrEmpty()){
@@ -95,7 +99,7 @@ class FavouriteCharactersFragment : Fragment() {
     }
 
     private fun initFavouriteRecyclerView(favouriteList: ArrayList<HeadModel>){
-        favouriteListAdapter = FavouriteListAdapter(favouriteList)
+        favouriteListAdapter = FavouriteListAdapter(favouriteList, ::buttonHandler)
         binding.rvFavourites.layoutManager = LinearLayoutManager(context)
         binding.rvFavourites.adapter = favouriteListAdapter
     }
