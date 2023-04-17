@@ -58,8 +58,10 @@ class HomeFragment : Fragment() {
         homeViewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
             if(isLoading){
                 binding.progressBar.visibility = VISIBLE
+                binding.detailButton.visibility = GONE
             }else{
                 binding.progressBar.visibility = GONE
+                binding.detailButton.visibility = VISIBLE
             }
         })
     }

@@ -25,7 +25,7 @@ class FavouriteCharactersFragment : Fragment() {
     private lateinit var binding: FragmentFavouriteCharactersBinding
     private lateinit var favouriteListAdapter: FavouriteListAdapter
     private val favouriteCharactersViewModel: FavouriteCharactersViewModel by viewModels()
-    private lateinit var headList: ArrayList<HeadModel>
+    private var headList: ArrayList<HeadModel> = ArrayList()
     private var initialHeadList: ArrayList<HeadModel> = ArrayList()
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
@@ -58,7 +58,7 @@ class FavouriteCharactersFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                if(newText==""){
+                if(newText=="" && !initialHeadList.isNullOrEmpty()){
                     headList.clear()
                     headList.addAll(initialHeadList)
                     favouriteListAdapter.notifyDataSetChanged()
@@ -78,7 +78,16 @@ class FavouriteCharactersFragment : Fragment() {
                 initialHeadList.addAll(headListObject)
                 headList = headListObject
                 initFavouriteRecyclerView(headList)
+            }else{
+                binding.svFavourites.isEnabled = false
+                if(!headList.isNullOrEmpty()){
+                    headList.clear()
+                    initialHeadList.clear()
+                    initFavouriteRecyclerView(headList)
+                }
+
             }
+
         })
     }
     private fun isLoadingObserver(){

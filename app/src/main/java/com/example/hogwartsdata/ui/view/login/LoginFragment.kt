@@ -60,7 +60,7 @@ class LoginFragment : Fragment() {
                     loginViewModel.resetLoginState()
                 }
                 LoginState.ERROR -> {
-                    Toast.makeText(context, "Error en login", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
                     loginViewModel.resetLoginState()
                 }
                 else -> {}

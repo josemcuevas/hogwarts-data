@@ -35,14 +35,27 @@ class HouseDetailViewModel @Inject constructor(
     }
 
     fun addFavourite(characterId: String){
-        val characterIds: ArrayList<String> = getFavouriteCharacters() as ArrayList<String>
-        characterIds.add(characterId)
+        var characterIds: ArrayList<String>
+        if(!getFavouriteCharacters().isEmpty()){
+            characterIds = getFavouriteCharacters() as ArrayList<String>
+            characterIds.add(characterId)
+            
+        }else{
+            characterIds = arrayListOf(characterId)
+        }
         setFavouriteCharacters(characterIds)
+        
+        
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
     fun isFavourite(characterId: String): Boolean{
-        val characterIds: ArrayList<String> = getFavouriteCharacters() as ArrayList<String>
-        return characterIds.stream().anyMatch { character -> character == characterId }
+        if(!getFavouriteCharacters().isEmpty()){
+            val characterIds: ArrayList<String> = getFavouriteCharacters() as ArrayList<String>
+            return characterIds.stream().anyMatch { character -> character == characterId }
+        }
+        return false
+
+
     }
 }

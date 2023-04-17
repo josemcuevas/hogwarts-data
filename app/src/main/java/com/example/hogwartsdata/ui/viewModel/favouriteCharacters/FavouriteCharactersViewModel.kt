@@ -44,6 +44,8 @@ class FavouriteCharactersViewModel @Inject constructor(
                 headsList.postValue(characterList)
                 isLoading.postValue(false)
             }
+        }else{
+            isLoading.postValue(false)
         }
 
     }

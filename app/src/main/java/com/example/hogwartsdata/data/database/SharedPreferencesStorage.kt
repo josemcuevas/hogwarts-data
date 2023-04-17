@@ -27,7 +27,7 @@ class SharedPreferencesStorage (val context: Context) {
 
     fun getFavouriteCharacters(): List<String>{
         val rawCharacterIds: String = storage.getString(FAVOURITE_CHARACTERS, "")!!
-        if(rawCharacterIds != ""){
+        if(!rawCharacterIds.isNullOrEmpty()){
             return rawCharacterIds.split(",")
         }
         return emptyList()
