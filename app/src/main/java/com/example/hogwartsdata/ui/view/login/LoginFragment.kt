@@ -1,22 +1,21 @@
 package com.example.hogwartsdata.ui.view.login
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Switch
 import android.widget.Toast
-import androidx.fragment.app.activityViewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.hogwartsdata.R
-import com.example.hogwartsdata.data.model.UserModel
 import com.example.hogwartsdata.databinding.FragmentLoginBinding
 import com.example.hogwartsdata.ui.viewModel.login.LoginState
 import com.example.hogwartsdata.ui.viewModel.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -28,6 +27,10 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        if(loginViewModel.isLoggedIt()){
+            (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+        }
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         loginStateObserver()
         loginButtonObserver()
@@ -53,6 +56,7 @@ class LoginFragment : Fragment() {
                 LoginState.IDLE -> {}
                 LoginState.SUCCESS -> {
                     findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+                    loginViewModel.setLoginState(true)
                     loginViewModel.resetLoginState()
                 }
                 LoginState.ERROR -> {
@@ -62,6 +66,21 @@ class LoginFragment : Fragment() {
                 else -> {}
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
 
 

@@ -35,8 +35,8 @@ class Repository @Inject constructor(
         mockedUserList = listOf<UserModel>(user1, user2)
     }
 
-    fun setLoginState(){
-        sharedPreferences.saveLoginState(true)
+    fun setLoginState(state: Boolean){
+        sharedPreferences.saveLoginState(state)
     }
 
     fun getLoginState(): Boolean{
